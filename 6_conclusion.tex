@@ -1,0 +1,12 @@
+\chapter{Conclusion}
+\label{ch:conclusion}
+
+Combining relevance and recency in Web search is an open problem. There are numerous approaches to this ranking problem, and existing solutions mostly focus on only one type of queries or documents. In this work, we introduce recency ranking for queries and documents on the Web in general, while preserving the existing relevance ranking.
+
+We presented a novel combination of machine-learned models to predict recency, both on the query and document side. We propose a query recency sensitivity classifier to determine the need for recent documents, and a document age prediction model to determine how recent a document is.
+
+We automatically labeled both ground truth datasets to avoid costly and time-consuming human annotation. We extracted features from several different sources. We recognized the challenges in keeping the feature values up to date and provided a solution on how to implement this in production. We trained two Gradient Boosted Regression Trees (GBRT) models and integrated them as features in an existing multi-stage ranking architecture.
+
+Having added only two recency features, we managed to improve the NDCG@10 of our ranking model by 0.5\%. We consider this a very good improvement, given that the model is already rich in strong features. Moreover, we did not introduce significant increase in scoring time. Finally, the introduced features are not exact, but predicted, which means they are open to further improvement.
+
+Our future work consists of improving the query recency sensitivity classifier and the document age prediction model. For the query classifier, introducing language models built from other sources such as news articles might be beneficial. For the document classifier, we are currently extracting only content-based features, whereas we could also make use of, for example, link-based features.
